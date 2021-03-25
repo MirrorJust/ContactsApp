@@ -1,8 +1,9 @@
 import React from 'react';
 import {
   StyleSheet,
-  ScrollView,
+  // ScrollView,
   FlatList,
+  SafeAreaView
 } from 'react-native';
 import {UserCard} from './src/components/UserCard.js';
 import {userArray} from './src/userData.js'
@@ -19,12 +20,14 @@ const App = () => {
   )
 
   return (
-
-    <FlatList 
+    <SafeAreaView style={styles.container}>
+      <FlatList style={styles.flatStyle}
       data={userArray}
       renderItem={renderItem}
       keyExtractor={item => item.id}
       />
+    </SafeAreaView>
+    
     // <ScrollView style = {styles.scrollStyle} contentContainerStyle = {styles.scrollContainer}>
     //   {userArray.map(item=> (
     //   <UserCard 
@@ -41,15 +44,21 @@ const App = () => {
 
 
 const styles = StyleSheet.create({
-scrollStyle: {
-    flex: 1
+// scrollStyle: {
+//     flex: 1
+// },
+// scrollContainer: {
+//     paddingTop: 100,
+//     justifyContent: 'center',
+//     alignItems: 'center'
+// },
+container: {
+  flex: 1
 },
-scrollContainer: {
-    paddingTop: 100,
-    justifyContent: 'center',
-    alignItems: 'center'
+container: {
+  justifyContent: 'center',
+  alignItems: 'center'
 }
-    
 
 });
 export default App;
